@@ -20,11 +20,6 @@ const winCombos = [
 	[0, 4, 8],
 	[6, 4, 2]
 ]
-function update_score(player, score)
-{
-	score++;
-	document.getElementById(player).innerHTML=score;
-}
 
 function flush()
 {
@@ -75,9 +70,11 @@ function play(event,id)
 			Xpos[index]=index;
 			 test1 = checkWin(Xpos, counter_x);
 			if(test1 )
-			{
+			{ x_win++;
+				document.getElementById("player1W").textContent=x_win;
+				document.getElementById("player2L").textContent=x_win;
 				console.log("Player 1 won");
-				update_score("player1, x_win");
+				//update_score(player1, x_win);
 				alert("Player 1 won");
 				flush();
 				return ;
@@ -96,6 +93,9 @@ function play(event,id)
 			 test2= checkWin(Ypos, counter_y);
 			if(test2)
 			{
+				y_win++;
+				document.getElementById("player2W").textContent=y_win;
+				document.getElementById("player1L").textContent=y_win;
 				console.log("Player 2 won");
 				alert("Player 2 won");
 				flush();
