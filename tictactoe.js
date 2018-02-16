@@ -20,7 +20,6 @@ const winCombos = [
 	[0, 4, 8],
 	[6, 4, 2]
 ]
-
 function flush()
 {
 	turn=false;
@@ -55,6 +54,8 @@ function play(event,id)
     event.target.innerText=  "0";
 
   }
+	document.getElementById("justsee").textContent="Game in Progress!";
+
   //event.target.innerText= turn ? "0": "X";
 	  how_many_moves++;
     turn= !turn;
@@ -75,14 +76,17 @@ function play(event,id)
 				document.getElementById("player2L").textContent=x_win;
 				console.log("Player 1 won");
 				//update_score(player1, x_win);
-				alert("Player 1 won");
+				//alert("Player 1 won");
+				document.getElementById("justsee").textContent="Player 1 won";
+
 				flush();
 				return ;
 			}
 			if(!test1 && how_many_moves==9)
 			{
 				console.log("Its a Draw!");
-				alert("Its a Draw!");
+				//alert("Its a Draw!");
+				document.getElementById("justsee").textContent="Draw";
 				flush();
 				return ;
 			}
@@ -97,7 +101,8 @@ function play(event,id)
 				document.getElementById("player2W").textContent=y_win;
 				document.getElementById("player1L").textContent=y_win;
 				console.log("Player 2 won");
-				alert("Player 2 won");
+				//alert("Player 2 won");
+				document.getElementById("justsee").textContent="Player 2 won";
 				flush();
 				return ;
 			}
